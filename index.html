@@ -415,6 +415,16 @@
   // Données de secours si l'API GitHub est indisponible (limite de requêtes, hors ligne…)
   const FALLBACK = [
     {
+      name: "36Frame",
+      description: "Liseuse d'images pour Windows inspirée de Picasa — la fenêtre épouse l'image, zoom fluide, Mosaïque Dossier, GIF et WebP animés, images détourées. Sans compte ni réseau. En français, réalisé avec Claude.",
+      language: "Python", topics: ["windows"], branch: "main",
+      url: "https://github.com/36txXnxTrGXgSH/36Frame",
+      homepage: "https://36txxnxtrgxgsh.github.io/36Frame/",
+      updated: "2026-10-21T00:00:00Z",
+      release: { tag: "v1.0.3", file: "36Frame-Setup-1.0.3.exe", size: 23724818,
+        url: "https://github.com/36txXnxTrGXgSH/36Frame/releases/download/v1.0.3/36Frame-Setup-1.0.3.exe" }
+    },
+    {
       name: "36Note",
       description: "Bloc-notes Android chiffré, consultable depuis le navigateur d'un PC — en français, réalisé avec Claude",
       language: "Kotlin", topics: [], branch: "main",
@@ -456,10 +466,13 @@
     return (clean.slice(0, 2) || "?").toUpperCase();
   };
 
-  // Préfère un installable (.apk, .exe…), sinon le premier fichier de la release
+  // Préfère un installable (.apk, .exe…), sinon le premier fichier de la release ;
+  // parmi plusieurs .exe (installateur + portable), l'installateur passe en premier
   function pickAsset(assets) {
     if (!assets || !assets.length) return null;
-    return assets.find(a => /\.(apk|exe|msi|msix|crx|xpi)$/i.test(a.name)) || assets[0];
+    const installable = a => /\.(apk|exe|msi|msix|crx|xpi)$/i.test(a.name);
+    return assets.find(a => installable(a) && /setup|install/i.test(a.name))
+      || assets.find(installable) || assets[0];
   }
 
   // Catégorie : d'abord les topics GitHub, puis le type de fichier téléchargé
