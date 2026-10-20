@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio Github</title>
+<meta name="description" content="Mes projets publics GitHub : description et téléchargement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%2357b6f0' d='M48 50H18a12 12 0 0 1-1.6-23.9A16 16 0 0 1 47 22a14 14 0 0 1 1 28z'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --sky-top: #8fd3ff;
+    --sky-mid: #bfe6ff;
+    --sky-bottom: #f2faff;
+    --ink: #17405e;
+    --ink-soft: #4a7391;
+    --accent: #2b95e0;
+    --accent-deep: #1a76c0;
+    --glass: rgba(255, 255, 255, 0.38);
+    --glass-strong: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.75);
+    --shadow: 0 12px 40px rgba(40, 110, 170, 0.18);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; min-height: 100%; }
+
+  body {
+    font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 45%, var(--sky-bottom) 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Nuages ---------- */
+  .sky {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .sun {
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 252, 230, 0.95) 0%, rgba(255, 245, 200, 0.4) 35%, rgba(255, 255, 255, 0) 70%);
+  }
+  .cloud {
+    position: absolute;
+    left: -40vw;
+    width: var(--w);
+    height: calc(var(--w) * 0.36);
+    top: var(--top);
+    opacity: var(--o, 0.9);
+    filter: blur(var(--blur, 2px));
+    animation: drift var(--dur) linear infinite;
+    animation-delay: var(--delay);
+  }
+  .cloud::before, .cloud::after, .cloud span {
+    content: "";
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+  }
+  .cloud span { left: 0; bottom: 0; width: 100%; height: 55%; border-radius: 999px; }
+  .cloud::before { width: 48%; height: 100%; left: 14%; bottom: 0; }
+  .cloud::after  { width: 36%; height: 80%; left: 50%; bottom: 0; }
+
+  @keyframes drift {
+    from { transform: translateX(0); }
+    to   { transform: translateX(180vw); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cloud { animation: none; left: var(--still); }
+  }
+
+  /* ---------- Mise en page ---------- */
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 72px 16px 48px;
+  }
+
+  .glass {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+  }
+
+  header.hero {
+    padding: 40px 32px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .avatar {
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    border: 3px solid var(--glass-border);
+    box-shadow: 0 6px 20px rgba(40, 110, 170, 0.25);
+    background: var(--glass-strong);
+    display: block;
+    margin: 0 auto 16px;
+    object-fit: cover;
+  }
+  h1 {
+    margin: 0 0 8px;
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .tagline {
+    margin: 0 auto;
+    max-width: 560px;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+    line-height: 1.55;
+  }
+  .stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--glass-strong);
+    border: 1px solid var(--glass-border);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  a.chip:hover { background: #fff; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 26px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 18px 50px rgba(40, 110, 170, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+  .card { overflow: hidden; }
+  .preview {
+    position: relative;
+    margin: -26px -26px 20px;
+    height: 280px;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 55%),
+      linear-gradient(160deg, #d8f0ff 0%, #a9dcff 100%);
+    border-bottom: 1px solid var(--glass-border);
+    overflow: hidden;
+  }
+  .preview img {
+    max-width: 88%;
+    max-height: 86%;
+    border-radius: 16px;
+    box-shadow: 0 14px 34px rgba(23, 64, 94, 0.28);
+    transition: transform 0.35s ease;
+  }
+  .preview img.portrait { max-height: 92%; border-radius: 18px; transform: translateY(14px); }
+  .preview img.og { max-width: 100%; max-height: 100%; border-radius: 0; box-shadow: none; }
+  .card:hover .preview img { transform: scale(1.03); }
+  .card:hover .preview img.portrait { transform: translateY(8px) scale(1.03); }
+
+  /* ---------- Catégories ---------- */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: -12px 0 36px;
+  }
+  .filter {
+    font: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 18px rgba(40, 110, 170, 0.12);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .filter:hover { background: var(--glass-strong); }
+  .filter[aria-pressed="true"] {
+    color: #fff;
+    background: linear-gradient(135deg, #46adf0, var(--accent-deep));
+    border-color: transparent;
+  }
+  .filter .n {
+    min-width: 22px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--ink);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .filter svg { width: 18px; height: 18px; }
+  .filter:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+  .category { margin-bottom: 44px; }
+  .category[hidden] { display: none; }
+  .category-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 18px 4px;
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+  .category-title svg { width: 26px; height: 26px; color: var(--accent-deep); }
+  .category-title .n { font-size: 0.95rem; color: var(--ink-soft); font-weight: 700; }
+  .empty-cat {
+    padding: 22px;
+    text-align: center;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .icon {
+    flex: none;
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: #fff;
+    background: linear-gradient(135deg, #6cc4ff, var(--accent-deep));
+    box-shadow: 0 6px 16px rgba(43, 149, 224, 0.35);
+  }
+  .card h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .meta span::after { content: "·"; margin-left: 6px; }
+  .meta span:last-child::after { content: ""; }
+
+  .desc {
+    flex: 1;
+    margin: 0 0 20px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .desc.empty { color: var(--ink-soft); font-style: italic; }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border-radius: 14px;
+    font: inherit;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  .btn-primary {
+    flex: 1 1 100%;
+    color: #fff;
+    background: linear-gradient(135deg, #46adf0, var(--accent-deep));
+    box-shadow: 0 8px 20px rgba(26, 118, 192, 0.35);
+  }
+  .btn-primary:hover { box-shadow: 0 10px 26px rgba(26, 118, 192, 0.5); }
+  .btn-primary small { font-weight: 600; opacity: 0.85; }
+  .btn-ghost {
+    flex: 1 1 0;
+    color: var(--ink);
+    background: var(--glass-strong);
+    border: 1px solid var(--glass-border);
+  }
+  .btn-ghost:hover { background: #fff; }
+  .btn:focus-visible, .chip:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .status {
+    text-align: center;
+    padding: 32px;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 16px 40px;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+  footer a { color: var(--accent-deep); font-weight: 700; }
+
+  @media (max-width: 520px) {
+    main { padding-top: 40px; }
+    header.hero { padding: 32px 20px; }
+    .card { padding: 22px; }
+    .preview { margin: -22px -22px 18px; height: 240px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sky" aria-hidden="true">
+  <div class="sun"></div>
+  <div class="cloud" style="--w:340px;--top:6%;--dur:95s;--delay:-20s;--still:5%"><span></span></div>
+  <div class="cloud" style="--w:220px;--top:22%;--dur:120s;--delay:-70s;--o:.75;--blur:3px;--still:60%"><span></span></div>
+  <div class="cloud" style="--w:460px;--top:40%;--dur:140s;--delay:-40s;--o:.55;--blur:6px;--still:30%"><span></span></div>
+  <div class="cloud" style="--w:280px;--top:62%;--dur:110s;--delay:-90s;--o:.8;--still:75%"><span></span></div>
+  <div class="cloud" style="--w:520px;--top:80%;--dur:160s;--delay:-10s;--o:.6;--blur:8px;--still:-10%"><span></span></div>
+  <div class="cloud" style="--w:180px;--top:14%;--dur:85s;--delay:-55s;--o:.7;--blur:4px;--still:40%"><span></span></div>
+</div>
+
+<main>
+  <header class="hero glass">
+    <img class="avatar" id="avatar" src="https://github.com/36txXnxTrGXgSH.png?size=176" alt="" width="88" height="88">
+    <h1>Mes projets</h1>
+    <p class="tagline">Des applications Android libres, en français, réalisées avec Claude. Chaque projet se télécharge directement depuis cette page.</p>
+    <div class="stats">
+      <span class="chip" id="count">— projets</span>
+      <a class="chip" id="profile" href="https://github.com/36txXnxTrGXgSH" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        Profil GitHub
+      </a>
+    </div>
+  </header>
+
+  <nav class="filters" id="filters" aria-label="Catégories"></nav>
+
+  <div id="projects" aria-live="polite">
+    <div class="status glass">Chargement des projets…</div>
+  </div>
+</main>
+
+<footer>
+  Liste mise à jour automatiquement depuis <a href="https://github.com/36txXnxTrGXgSH" target="_blank" rel="noopener">GitHub</a>.
+</footer>
+
+<script>
+  const USER = "36txXnxTrGXgSH";
+  const SELF_REPO = "portfolio-github"; // ce site, exclu de la liste
+
+  // Les 4 catégories, dans l'ordre d'affichage
+  const CATEGORIES = [
+    { id: "android", label: "Android",
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>' },
+    { id: "windows", label: "Windows",
+      icon: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg>' },
+    { id: "navigateur", label: "Navigateur",
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>' },
+    { id: "autre", label: "Autre",
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>' }
+  ];
+
+  // Topics GitHub reconnus pour chaque catégorie
+  const TOPIC_MAP = {
+    android: ["android", "android-app", "apk"],
+    windows: ["windows", "windows-app", "win32", "exe"],
+    navigateur: ["navigateur", "browser", "browser-extension", "extension", "chrome-extension",
+                 "firefox-addon", "firefox-extension", "userscript", "web-app", "webapp"]
+  };
+
+  // Images de présentation essayées dans l'ordre (dans le dépôt, branche par défaut).
+  // Pour choisir l'image d'un projet : ajouter un fichier "preview.png" à la racine du dépôt.
+  const IMAGE_CANDIDATES = ["preview.png", "preview.jpg", "docs/preview.png",
+                            "docs/images/01-accueil.png", "screenshot.png"];
+
+  // Données de secours si l'API GitHub est indisponible (limite de requêtes, hors ligne…)
+  const FALLBACK = [
+    {
+      name: "36Note",
+      description: "Bloc-notes Android chiffré, consultable depuis le navigateur d'un PC — en français, réalisé avec Claude",
+      language: "Kotlin", topics: [], branch: "main",
+      url: "https://github.com/36txXnxTrGXgSH/36Note",
+      homepage: "https://36txxnxtrgxgsh.github.io/36Note/",
+      updated: "2026-10-20T06:06:09Z",
+      release: { tag: "v1.25", file: "36Note-1.25.apk", size: 2320033,
+        url: "https://github.com/36txXnxTrGXgSH/36Note/releases/download/v1.25/36Note-1.25.apk" }
+    },
+    {
+      name: "36Music",
+      description: "Lecteur de musique local pour Android, piloté par une molette cliquable — FLAC, ALAC, Hi-Res, sans compte ni réseau. En français, réalisé avec Claude.",
+      language: "Kotlin", topics: ["android"], branch: "main",
+      url: "https://github.com/36txXnxTrGXgSH/36Music",
+      homepage: "https://36txXnxTrGXgSH.github.io/36Music/",
+      updated: "2026-10-20T05:08:24Z",
+      release: { tag: "v5.4", file: "36Music-5.4.apk", size: 3081731,
+        url: "https://github.com/36txXnxTrGXgSH/36Music/releases/download/v5.4/36Music-5.4.apk" }
+    }
+  ];
+
+  const ICONS = {
+    download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>',
+    code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>',
+    globe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>'
+  };
+
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+  const fmtSize = b => b >= 1048576
+    ? (b / 1048576).toLocaleString("fr-FR", { maximumFractionDigits: 1 }) + " Mo"
+    : Math.max(1, Math.round(b / 1024)) + " Ko";
+
+  const fmtDate = iso => new Date(iso).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+
+  const initials = name => {
+    const clean = name.replace(/[^\p{L}\p{N}]/gu, "");
+    return (clean.slice(0, 2) || "?").toUpperCase();
+  };
+
+  // Préfère un installable (.apk, .exe…), sinon le premier fichier de la release
+  function pickAsset(assets) {
+    if (!assets || !assets.length) return null;
+    return assets.find(a => /\.(apk|exe|msi|msix|crx|xpi)$/i.test(a.name)) || assets[0];
+  }
+
+  // Catégorie : d'abord les topics GitHub, puis le type de fichier téléchargé
+  function categorize(p) {
+    const topics = (p.topics || []).map(t => t.toLowerCase());
+    for (const id of ["android", "windows", "navigateur"]) {
+      if (topics.some(t => TOPIC_MAP[id].includes(t))) return id;
+    }
+    const file = ((p.release && p.release.file) || "").toLowerCase();
+    if (/\.(apk|aab)$/.test(file)) return "android";
+    if (/\.(exe|msi|msix)$/.test(file)) return "windows";
+    if (/\.(crx|xpi)$/.test(file)) return "navigateur";
+    return "autre";
+  }
+
+  async function fetchProjects() {
+    const res = await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&type=owner&sort=updated`);
+    if (!res.ok) throw new Error("API " + res.status);
+    const repos = (await res.json()).filter(r => !r.fork && !r.private && r.name.toLowerCase() !== SELF_REPO);
+
+    return Promise.all(repos.map(async r => {
+      let release = null;
+      try {
+        const rel = await fetch(`https://api.github.com/repos/${USER}/${r.name}/releases/latest`);
+        if (rel.ok) {
+          const data = await rel.json();
+          const a = pickAsset(data.assets);
+          if (a) release = { tag: data.tag_name, file: a.name, size: a.size, url: a.browser_download_url };
+        }
+      } catch (_) { /* pas de release : on proposera le .zip du code */ }
+      return {
+        name: r.name,
+        description: r.description,
+        language: r.language,
+        topics: r.topics,
+        url: r.html_url,
+        homepage: r.homepage,
+        updated: r.pushed_at || r.updated_at,
+        branch: r.default_branch,
+        release
+      };
+    }));
+  }
+
+  // Images à essayer pour un projet ; la dernière (carte d'aperçu GitHub) existe toujours
+  function imageSources(p) {
+    const raw = `https://raw.githubusercontent.com/${USER}/${p.name}/${p.branch || "main"}/`;
+    return IMAGE_CANDIDATES.map(f => raw + f)
+      .concat(`https://opengraph.githubassets.com/1/${USER}/${p.name}`);
+  }
+
+  // Passe à l'image suivante si celle-ci n'existe pas
+  function nextImage(img) {
+    const list = JSON.parse(img.dataset.srcs);
+    const i = Number(img.dataset.i) + 1;
+    if (i >= list.length) { img.parentElement.remove(); return; }
+    img.dataset.i = i;
+    if (i === list.length - 1) img.classList.add("og");
+    img.src = list[i];
+  }
+
+  function onImageLoad(img) {
+    if (img.naturalHeight > img.naturalWidth * 1.2) img.classList.add("portrait");
+  }
+
+  function card(p) {
+    const meta = [p.language, p.release && p.release.tag, "Mis à jour le " + fmtDate(p.updated)]
+      .filter(Boolean).map(m => `<span>${esc(m)}</span>`).join("");
+
+    const download = p.release
+      ? `<a class="btn btn-primary" href="${esc(p.release.url)}" download>
+           ${ICONS.download} Télécharger <small>${esc(p.release.file)} · ${fmtSize(p.release.size)}</small></a>`
+      : `<a class="btn btn-primary" href="${esc(p.url)}/archive/refs/heads/${esc(p.branch || "main")}.zip">
+           ${ICONS.download} Télécharger <small>code source .zip</small></a>`;
+
+    const site = p.homepage
+      ? `<a class="btn btn-ghost" href="${esc(p.homepage)}" target="_blank" rel="noopener">${ICONS.globe} Site</a>`
+      : "";
+
+    const srcs = imageSources(p);
+
+    return `
+      <article class="card glass">
+        <div class="preview">
+          <img src="${esc(srcs[0])}" data-srcs="${esc(JSON.stringify(srcs))}" data-i="0"
+               alt="Aperçu de ${esc(p.name)}" loading="lazy"
+               onload="onImageLoad(this)" onerror="nextImage(this)">
+        </div>
+        <div class="card-head">
+          <div class="icon" aria-hidden="true">${esc(initials(p.name))}</div>
+          <div>
+            <h3>${esc(p.name)}</h3>
+            <div class="meta">${meta}</div>
+          </div>
+        </div>
+        <p class="desc${p.description ? "" : " empty"}">${esc(p.description || "Pas encore de description.")}</p>
+        <div class="actions">
+          ${download}
+          <a class="btn btn-ghost" href="${esc(p.url)}" target="_blank" rel="noopener">${ICONS.code} Code</a>
+          ${site}
+        </div>
+      </article>`;
+  }
+
+  function render(projects) {
+    projects.forEach(p => { p.category = categorize(p); });
+    const byCat = id => projects.filter(p => p.category === id);
+
+    document.getElementById("count").textContent =
+      projects.length + (projects.length > 1 ? " projets" : " projet");
+
+    document.getElementById("projects").innerHTML = CATEGORIES.map(c => {
+      const list = byCat(c.id);
+      return `
+        <section class="category" data-cat="${c.id}" aria-labelledby="t-${c.id}">
+          <h2 class="category-title" id="t-${c.id}">${c.icon} ${c.label} <span class="n">${list.length}</span></h2>
+          ${list.length
+            ? `<div class="grid">${list.map(card).join("")}</div>`
+            : `<div class="empty-cat glass">Aucun projet dans cette catégorie pour le moment.</div>`}
+        </section>`;
+    }).join("");
+
+    const filters = document.getElementById("filters");
+    filters.innerHTML = [{ id: "tous", label: "Tous", icon: "" }, ...CATEGORIES].map(c => {
+      const n = c.id === "tous" ? projects.length : byCat(c.id).length;
+      return `<button class="filter" type="button" data-filter="${c.id}" aria-pressed="${c.id === "tous"}">
+                ${c.icon}${c.label}<span class="n">${n}</span></button>`;
+    }).join("");
+
+    filters.onclick = e => {
+      const btn = e.target.closest(".filter");
+      if (!btn) return;
+      const f = btn.dataset.filter;
+      filters.querySelectorAll(".filter").forEach(b => b.setAttribute("aria-pressed", b === btn));
+      document.querySelectorAll(".category").forEach(s => {
+        s.hidden = f !== "tous" && s.dataset.cat !== f;
+      });
+    };
+  }
+
+  fetchProjects().then(render).catch(() => render(FALLBACK));
+</script>
+</body>
+</html>
