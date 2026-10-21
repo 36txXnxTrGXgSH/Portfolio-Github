@@ -676,7 +676,10 @@
     };
   }
 
-  const CACHE_KEY = "portfolio-projects-v2";
+  // Incrémenter la version quand la page doit abandonner les copies gardées par les
+  // navigateurs (nouveau projet, topics changés) : sans cela, un visiteur voit jusqu'à
+  // 24 h l'ancien classement, la page ne redemandant rien à GitHub tant que sa copie vit.
+  const CACHE_KEY = "portfolio-projects-v3";
   const CACHE_TTL = 24 * 60 * 60 * 1000; // données GitHub rafraîchies une fois par jour
 
   function readCache() {
