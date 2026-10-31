@@ -443,6 +443,16 @@
   // Données de secours si l'API GitHub est indisponible (limite de requêtes, hors ligne…)
   const FALLBACK = [
     {
+      name: "36Screenlink", stars: 0, watchers: 0,
+      description: "Écran étendu Android pour Windows, en USB et Wi-Fi : un vrai moniteur, avec tactile, clavier et stylet. En français, réalisé avec Claude.",
+      language: "C++", topics: ["windows"], branch: "main",
+      url: "https://github.com/36txXnxTrGXgSH/36Screenlink",
+      homepage: "https://36txxnxtrgxgsh.github.io/36Screenlink/",
+      updated: "2026-10-31T00:00:00Z",
+      release: { tag: "v1.4.1", file: "36Screenlink-Setup.exe", size: 2285204,
+        url: "https://github.com/36txXnxTrGXgSH/36Screenlink/releases/download/v1.4.1/36Screenlink-Setup.exe" }
+    },
+    {
       name: "36FileManager", stars: 0, watchers: 0,
       description: "Gestionnaire de fichiers Android : recherche, coffre-fort chiffré, lecteurs réseau SMB, et le téléphone ouvert dans le navigateur du PC. En français, réalisé avec Claude.",
       language: "Kotlin", topics: ["android"], branch: "main",
@@ -679,7 +689,7 @@
   // Incrémenter la version quand la page doit abandonner les copies gardées par les
   // navigateurs (nouveau projet, topics changés) : sans cela, un visiteur voit jusqu'à
   // 24 h l'ancien classement, la page ne redemandant rien à GitHub tant que sa copie vit.
-  const CACHE_KEY = "portfolio-projects-v3";
+  const CACHE_KEY = "portfolio-projects-v4";
   const CACHE_TTL = 24 * 60 * 60 * 1000; // données GitHub rafraîchies une fois par jour
 
   function readCache() {
