@@ -1,6 +1,42 @@
 {
-  "generated": "2026-11-08T11:46:43Z",
+  "generated": "2026-11-08T22:21:29Z",
   "projects": [
+    {
+      "name": "36Screenlink",
+      "description": "Écran étendu Android pour Windows, en USB et Wi-Fi : un vrai moniteur, avec tactile, clavier et stylet. En français, réalisé avec Claude.",
+      "language": "C++",
+      "topics": [
+        "extended-display",
+        "french",
+        "second-screen",
+        "tablet",
+        "windows"
+      ],
+      "url": "https://github.com/36txXnxTrGXgSH/36Screenlink",
+      "homepage": "https://36txxnxtrgxgsh.github.io/36Screenlink/",
+      "updated": "2026-11-08T21:17:51Z",
+      "branch": "main",
+      "stars": 0,
+      "watchers": 0,
+      "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Screenlink/main/docs/images/01-accueil.png",
+      "release": {
+        "tag": "v1.6.0",
+        "files": [
+          {
+            "platform": "windows",
+            "file": "36Screenlink-Setup.exe",
+            "size": 2293266,
+            "url": "https://github.com/36txXnxTrGXgSH/36Screenlink/releases/download/v1.6.0/36Screenlink-Setup.exe"
+          },
+          {
+            "platform": "android",
+            "file": "36Screenlink.apk",
+            "size": 127382,
+            "url": "https://github.com/36txXnxTrGXgSH/36Screenlink/releases/download/v1.6.0/36Screenlink.apk"
+          }
+        ]
+      }
+    },
     {
       "name": "36Board",
       "description": "Clavier AZERTY français pour Android, entièrement hors ligne : saisie gestuelle, dictionnaire de 150 000 mots, abréviations SMS et anglicismes, plus de 1 300 emoji. Aucune permission réseau. En français, réalisé avec Claude.",
@@ -22,9 +58,14 @@
       "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Board/main/docs/images/01-accueil.png",
       "release": {
         "tag": "v1.14",
-        "file": "36Board-1.14.apk",
-        "size": 1789977,
-        "url": "https://github.com/36txXnxTrGXgSH/36Board/releases/download/v1.14/36Board-1.14.apk"
+        "files": [
+          {
+            "platform": "android",
+            "file": "36Board-1.14.apk",
+            "size": 1789977,
+            "url": "https://github.com/36txXnxTrGXgSH/36Board/releases/download/v1.14/36Board-1.14.apk"
+          }
+        ]
       }
     },
     {
@@ -53,34 +94,14 @@
       "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Frame/main/docs/images/01-accueil.png",
       "release": {
         "tag": "v1.2.2",
-        "file": "36Frame-Setup-1.2.2.exe",
-        "size": 23751683,
-        "url": "https://github.com/36txXnxTrGXgSH/36Frame/releases/download/v1.2.2/36Frame-Setup-1.2.2.exe"
-      }
-    },
-    {
-      "name": "36Screenlink",
-      "description": "Écran étendu Android pour Windows, en USB et Wi-Fi : un vrai moniteur, avec tactile, clavier et stylet. En français, réalisé avec Claude.",
-      "language": "C++",
-      "topics": [
-        "extended-display",
-        "french",
-        "second-screen",
-        "tablet",
-        "windows"
-      ],
-      "url": "https://github.com/36txXnxTrGXgSH/36Screenlink",
-      "homepage": "https://36txxnxtrgxgsh.github.io/36Screenlink/",
-      "updated": "2026-11-01T14:07:39Z",
-      "branch": "main",
-      "stars": 0,
-      "watchers": 0,
-      "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Screenlink/main/docs/images/01-accueil.png",
-      "release": {
-        "tag": "v1.5.0",
-        "file": "36Screenlink-Setup.exe",
-        "size": 2285348,
-        "url": "https://github.com/36txXnxTrGXgSH/36Screenlink/releases/download/v1.5.0/36Screenlink-Setup.exe"
+        "files": [
+          {
+            "platform": "windows",
+            "file": "36Frame-Setup-1.2.2.exe",
+            "size": 23751683,
+            "url": "https://github.com/36txXnxTrGXgSH/36Frame/releases/download/v1.2.2/36Frame-Setup-1.2.2.exe"
+          }
+        ]
       }
     },
     {
@@ -102,9 +123,14 @@
       "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36FileManager/main/docs/images/01-accueil.png",
       "release": {
         "tag": "v2.5.1",
-        "file": "36FileManager-2.5.1.apk",
-        "size": 16765684,
-        "url": "https://github.com/36txXnxTrGXgSH/36FileManager/releases/download/v2.5.1/36FileManager-2.5.1.apk"
+        "files": [
+          {
+            "platform": "android",
+            "file": "36FileManager-2.5.1.apk",
+            "size": 16765684,
+            "url": "https://github.com/36txXnxTrGXgSH/36FileManager/releases/download/v2.5.1/36FileManager-2.5.1.apk"
+          }
+        ]
       }
     },
     {
@@ -121,9 +147,14 @@
       "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Note/main/docs/images/01-accueil.png",
       "release": {
         "tag": "v1.25",
-        "file": "36Note-1.25.apk",
-        "size": 2320033,
-        "url": "https://github.com/36txXnxTrGXgSH/36Note/releases/download/v1.25/36Note-1.25.apk"
+        "files": [
+          {
+            "platform": "android",
+            "file": "36Note-1.25.apk",
+            "size": 2320033,
+            "url": "https://github.com/36txXnxTrGXgSH/36Note/releases/download/v1.25/36Note-1.25.apk"
+          }
+        ]
       }
     },
     {
@@ -149,9 +180,14 @@
       "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Music/main/docs/images/01-accueil.png",
       "release": {
         "tag": "v5.4",
-        "file": "36Music-5.4.apk",
-        "size": 3081731,
-        "url": "https://github.com/36txXnxTrGXgSH/36Music/releases/download/v5.4/36Music-5.4.apk"
+        "files": [
+          {
+            "platform": "android",
+            "file": "36Music-5.4.apk",
+            "size": 3081731,
+            "url": "https://github.com/36txXnxTrGXgSH/36Music/releases/download/v5.4/36Music-5.4.apk"
+          }
+        ]
       }
     }
   ]

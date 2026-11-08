@@ -16,5 +16,5 @@ La GitHub Action [`Liste des projets`](.github/workflows/projects.yml) régénè
 ## Règles
 
 - **Catégorie** : selon les topics du dépôt (`android`, `windows`, `browser-extension`…), sinon selon le fichier de la dernière release (`.apk`, `.exe`, `.crx`…).
-- **Fichier à télécharger** : l'installable de la dernière release (`.apk`, `.exe`…, l'installateur en priorité), sinon le code source en `.zip`.
+- **Fichiers à télécharger** : un installable par plateforme présente dans la dernière release (`.exe` pour Windows, `.apk` pour Android, `.crx`/`.xpi` pour le navigateur ; l'installateur passe avant le portable), sinon le code source en `.zip`.
 - **Image** : `preview.png` à la racine du dépôt, sinon `docs/images/01-accueil.png`, sinon l'aperçu GitHub.

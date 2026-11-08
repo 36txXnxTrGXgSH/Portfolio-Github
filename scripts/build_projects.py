@@ -21,7 +21,13 @@ OUTPUT = Path(__file__).resolve().parent.parent / "projects.json"
 # Pour choisir l'image d'un projet : ajouter un fichier "preview.png" à la racine du dépôt.
 IMAGE_CANDIDATES = ["preview.png", "docs/images/01-accueil.png"]
 
-INSTALLABLE = (".apk", ".exe", ".msi", ".msix", ".crx", ".xpi")
+# Installables reconnus, par plateforme. Une release qui en contient pour plusieurs
+# plateformes (ex. 36Screenlink : .exe pour le PC + .apk pour le téléphone) a un bouton par plateforme.
+PLATFORMS = {
+    "windows": (".exe", ".msi", ".msix"),
+    "android": (".apk",),
+    "navigateur": (".crx", ".xpi"),
+}
 
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
@@ -48,14 +54,21 @@ def exists(url):
         return False
 
 
-def pick_asset(assets):
-    """Préfère un installable (.apk, .exe…), sinon le premier fichier de la release ;
-    parmi plusieurs .exe (installateur + portable), l'installateur passe en premier."""
-    if not assets:
-        return None
-    installable = [a for a in assets if a["name"].lower().endswith(INSTALLABLE)]
-    setup = [a for a in installable if "setup" in a["name"].lower() or "install" in a["name"].lower()]
-    return (setup or installable or assets)[0]
+def pick_files(assets):
+    """Un fichier par plateforme présente dans la release ; pour une même plateforme,
+    l'installateur passe avant le portable. Sans installable : le premier fichier."""
+    def entry(a, platform):
+        return {"platform": platform, "file": a["name"], "size": a["size"], "url": a["browser_download_url"]}
+
+    files = []
+    for platform, extensions in PLATFORMS.items():
+        matching = [a for a in assets if a["name"].lower().endswith(extensions)]
+        setup = [a for a in matching if "setup" in a["name"].lower() or "install" in a["name"].lower()]
+        if matching:
+            files.append(entry((setup or matching)[0], platform))
+    if not files and assets:
+        files.append(entry(assets[0], None))
+    return files
 
 
 def latest_release(name):
@@ -65,10 +78,10 @@ def latest_release(name):
         if e.code == 404:  # pas de release : la page proposera le .zip du code
             return None
         raise
-    a = pick_asset(data.get("assets"))
-    if not a:
+    files = pick_files(data.get("assets") or [])
+    if not files:
         return None
-    return {"tag": data["tag_name"], "file": a["name"], "size": a["size"], "url": a["browser_download_url"]}
+    return {"tag": data["tag_name"], "files": files}
 
 
 def preview_image(name, branch):

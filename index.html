@@ -457,17 +457,13 @@
     return (clean.slice(0, 2) || "?").toUpperCase();
   };
 
-  // Catégorie : d'abord les topics GitHub, puis le type de fichier téléchargé
+  // Catégorie : d'abord les topics GitHub, puis la plateforme du premier fichier de la release
   function categorize(p) {
     const topics = (p.topics || []).map(t => t.toLowerCase());
     for (const id of ["android", "windows", "navigateur"]) {
       if (topics.some(t => TOPIC_MAP[id].includes(t))) return id;
     }
-    const file = ((p.release && p.release.file) || "").toLowerCase();
-    if (/\.(apk|aab)$/.test(file)) return "android";
-    if (/\.(exe|msi|msix)$/.test(file)) return "windows";
-    if (/\.(crx|xpi)$/.test(file)) return "navigateur";
-    return "autre";
+    return (p.release && p.release.files[0].platform) || "autre";
   }
 
   // Image choisie par le script, puis la carte d'aperçu GitHub, qui existe toujours
@@ -493,9 +489,16 @@
     const meta = [p.language, p.release && p.release.tag, "Mis à jour le " + fmtDate(p.updated)]
       .filter(Boolean).map(m => `<span>${esc(m)}</span>`).join("");
 
-    const download = p.release
-      ? `<a class="btn btn-primary" href="${esc(p.release.url)}" download>
-           ${ICONS.download} Télécharger <small>${esc(p.release.file)} · ${fmtSize(p.release.size)}</small></a>`
+    // Un bouton par plateforme (ex. 36Screenlink : .exe pour le PC + .apk pour le téléphone),
+    // celui de la catégorie du projet en premier
+    const files = p.release
+      ? [...p.release.files].sort((a, b) => (b.platform === p.category) - (a.platform === p.category))
+      : [];
+    const platformLabel = id => (CATEGORIES.find(c => c.id === id) || {}).label;
+    const download = files.length
+      ? files.map(f => `<a class="btn btn-primary" href="${esc(f.url)}" download>
+           ${ICONS.download} Télécharger${files.length > 1 && f.platform ? " pour " + esc(platformLabel(f.platform)) : ""}
+           <small>${esc(f.file)} · ${fmtSize(f.size)}</small></a>`).join("")
       : `<a class="btn btn-primary" href="${esc(p.url)}/archive/refs/heads/${esc(p.branch || "main")}.zip">
            ${ICONS.download} Télécharger <small>code source .zip</small></a>`;
 
