@@ -1,1 +1,158 @@
-{"generated":"2026-11-08T11:46:43Z","projects":[{"name":"36Board","description":"Clavier AZERTY français pour Android, entièrement hors ligne : saisie gestuelle, dictionnaire de 150 000 mots, abréviations SMS et anglicismes, plus de 1 300 emoji. Aucune permission réseau. En français, réalisé avec Claude.","language":"Kotlin","topics":["android","clavier","french","keyboard","kotlin","offline"],"url":"https://github.com/36txXnxTrGXgSH/36Board","homepage":"https://36txxnxtrgxgsh.github.io/36Board/","updated":"2026-11-08T11:35:36Z","branch":"main","stars":0,"watchers":0,"image":"https://raw.githubusercontent.com/36txXnxTrGXgSH/36Board/main/docs/images/01-accueil.png","release":{"tag":"v1.14","file":"36Board-1.14.apk","size":1789977,"url":"https://github.com/36txXnxTrGXgSH/36Board/releases/download/v1.14/36Board-1.14.apk"}},{"name":"36Frame","description":"Liseuse d'images pour Windows inspirée de Picasa — la fenêtre épouse l'image, zoom fluide, Mosaïque Dossier, écran tactile (pincement, balayage), aperçu avant impression, GIF et WebP animés, images détourées. Sans compte ni réseau. En français, réalisé avec Claude.","language":"Python","topics":["french","gif","image-viewer","offline","photo-viewer","picasa","pyside6","python","touchscreen","webp","windows"],"url":"https://github.com/36txXnxTrGXgSH/36Frame","homepage":"https://36txxnxtrgxgsh.github.io/36Frame/","updated":"2026-11-07T21:11:20Z","branch":"main","stars":0,"watchers":0,"image":"https://raw.githubusercontent.com/36txXnxTrGXgSH/36Frame/main/docs/images/01-accueil.png","release":{"tag":"v1.2.2","file":"36Frame-Setup-1.2.2.exe","size":23751683,"url":"https://github.com/36txXnxTrGXgSH/36Frame/releases/download/v1.2.2/36Frame-Setup-1.2.2.exe"}},{"name":"36Screenlink","description":"Écran étendu Android pour Windows, en USB et Wi-Fi : un vrai moniteur, avec tactile, clavier et stylet. En français, réalisé avec Claude.","language":"C++","topics":["extended-display","french","second-screen","tablet","windows"],"url":"https://github.com/36txXnxTrGXgSH/36Screenlink","homepage":"https://36txxnxtrgxgsh.github.io/36Screenlink/","updated":"2026-11-01T14:07:39Z","branch":"main","stars":0,"watchers":0,"image":"https://raw.githubusercontent.com/36txXnxTrGXgSH/36Screenlink/main/docs/images/01-accueil.png","release":{"tag":"v1.5.0","file":"36Screenlink-Setup.exe","size":2285348,"url":"https://github.com/36txXnxTrGXgSH/36Screenlink/releases/download/v1.5.0/36Screenlink-Setup.exe"}},{"name":"36FileManager","description":"Gestionnaire de fichiers Android : recherche, coffre-fort chiffré, lecteurs réseau SMB, et le téléphone ouvert dans le navigateur du PC. En français, réalisé avec Claude.","language":"Kotlin","topics":["android","gestionnaire-de-fichiers","jetpack-compose","kotlin"],"url":"https://github.com/36txXnxTrGXgSH/36FileManager","homepage":"https://36txxnxtrgxgsh.github.io/36FileManager/","updated":"2026-10-21T01:21:18Z","branch":"main","stars":0,"watchers":0,"image":"https://raw.githubusercontent.com/36txXnxTrGXgSH/36FileManager/main/docs/images/01-accueil.png","release":{"tag":"v2.5.1","file":"36FileManager-2.5.1.apk","size":16765684,"url":"https://github.com/36txXnxTrGXgSH/36FileManager/releases/download/v2.5.1/36FileManager-2.5.1.apk"}},{"name":"36Note","description":"Bloc-notes Android chiffré, consultable depuis le navigateur d'un PC — en français, réalisé avec Claude","language":"Kotlin","topics":[],"url":"https://github.com/36txXnxTrGXgSH/36Note","homepage":"https://36txxnxtrgxgsh.github.io/36Note/","updated":"2026-10-20T06:06:17Z","branch":"main","stars":0,"watchers":0,"image":"https://raw.githubusercontent.com/36txXnxTrGXgSH/36Note/main/docs/images/01-accueil.png","release":{"tag":"v1.25","file":"36Note-1.25.apk","size":2320033,"url":"https://github.com/36txXnxTrGXgSH/36Note/releases/download/v1.25/36Note-1.25.apk"}},{"name":"36Music","description":"Lecteur de musique local pour Android, piloté par une molette cliquable — FLAC, ALAC, Hi-Res, sans compte ni réseau. En français, réalisé avec Claude.","language":"Kotlin","topics":["alac","android","flac","french","jetpack-compose","kotlin","music-player","offline"],"url":"https://github.com/36txXnxTrGXgSH/36Music","homepage":"https://36txXnxTrGXgSH.github.io/36Music/","updated":"2026-10-20T05:08:20Z","branch":"main","stars":0,"watchers":0,"image":"https://raw.githubusercontent.com/36txXnxTrGXgSH/36Music/main/docs/images/01-accueil.png","release":{"tag":"v5.4","file":"36Music-5.4.apk","size":3081731,"url":"https://github.com/36txXnxTrGXgSH/36Music/releases/download/v5.4/36Music-5.4.apk"}}]}
+{
+  "generated": "2026-11-08T11:46:43Z",
+  "projects": [
+    {
+      "name": "36Board",
+      "description": "Clavier AZERTY français pour Android, entièrement hors ligne : saisie gestuelle, dictionnaire de 150 000 mots, abréviations SMS et anglicismes, plus de 1 300 emoji. Aucune permission réseau. En français, réalisé avec Claude.",
+      "language": "Kotlin",
+      "topics": [
+        "android",
+        "clavier",
+        "french",
+        "keyboard",
+        "kotlin",
+        "offline"
+      ],
+      "url": "https://github.com/36txXnxTrGXgSH/36Board",
+      "homepage": "https://36txxnxtrgxgsh.github.io/36Board/",
+      "updated": "2026-11-08T11:35:36Z",
+      "branch": "main",
+      "stars": 0,
+      "watchers": 0,
+      "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Board/main/docs/images/01-accueil.png",
+      "release": {
+        "tag": "v1.14",
+        "file": "36Board-1.14.apk",
+        "size": 1789977,
+        "url": "https://github.com/36txXnxTrGXgSH/36Board/releases/download/v1.14/36Board-1.14.apk"
+      }
+    },
+    {
+      "name": "36Frame",
+      "description": "Liseuse d'images pour Windows inspirée de Picasa — la fenêtre épouse l'image, zoom fluide, Mosaïque Dossier, écran tactile (pincement, balayage), aperçu avant impression, GIF et WebP animés, images détourées. Sans compte ni réseau. En français, réalisé avec Claude.",
+      "language": "Python",
+      "topics": [
+        "french",
+        "gif",
+        "image-viewer",
+        "offline",
+        "photo-viewer",
+        "picasa",
+        "pyside6",
+        "python",
+        "touchscreen",
+        "webp",
+        "windows"
+      ],
+      "url": "https://github.com/36txXnxTrGXgSH/36Frame",
+      "homepage": "https://36txxnxtrgxgsh.github.io/36Frame/",
+      "updated": "2026-11-07T21:11:20Z",
+      "branch": "main",
+      "stars": 0,
+      "watchers": 0,
+      "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Frame/main/docs/images/01-accueil.png",
+      "release": {
+        "tag": "v1.2.2",
+        "file": "36Frame-Setup-1.2.2.exe",
+        "size": 23751683,
+        "url": "https://github.com/36txXnxTrGXgSH/36Frame/releases/download/v1.2.2/36Frame-Setup-1.2.2.exe"
+      }
+    },
+    {
+      "name": "36Screenlink",
+      "description": "Écran étendu Android pour Windows, en USB et Wi-Fi : un vrai moniteur, avec tactile, clavier et stylet. En français, réalisé avec Claude.",
+      "language": "C++",
+      "topics": [
+        "extended-display",
+        "french",
+        "second-screen",
+        "tablet",
+        "windows"
+      ],
+      "url": "https://github.com/36txXnxTrGXgSH/36Screenlink",
+      "homepage": "https://36txxnxtrgxgsh.github.io/36Screenlink/",
+      "updated": "2026-11-01T14:07:39Z",
+      "branch": "main",
+      "stars": 0,
+      "watchers": 0,
+      "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Screenlink/main/docs/images/01-accueil.png",
+      "release": {
+        "tag": "v1.5.0",
+        "file": "36Screenlink-Setup.exe",
+        "size": 2285348,
+        "url": "https://github.com/36txXnxTrGXgSH/36Screenlink/releases/download/v1.5.0/36Screenlink-Setup.exe"
+      }
+    },
+    {
+      "name": "36FileManager",
+      "description": "Gestionnaire de fichiers Android : recherche, coffre-fort chiffré, lecteurs réseau SMB, et le téléphone ouvert dans le navigateur du PC. En français, réalisé avec Claude.",
+      "language": "Kotlin",
+      "topics": [
+        "android",
+        "gestionnaire-de-fichiers",
+        "jetpack-compose",
+        "kotlin"
+      ],
+      "url": "https://github.com/36txXnxTrGXgSH/36FileManager",
+      "homepage": "https://36txxnxtrgxgsh.github.io/36FileManager/",
+      "updated": "2026-10-21T01:21:18Z",
+      "branch": "main",
+      "stars": 0,
+      "watchers": 0,
+      "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36FileManager/main/docs/images/01-accueil.png",
+      "release": {
+        "tag": "v2.5.1",
+        "file": "36FileManager-2.5.1.apk",
+        "size": 16765684,
+        "url": "https://github.com/36txXnxTrGXgSH/36FileManager/releases/download/v2.5.1/36FileManager-2.5.1.apk"
+      }
+    },
+    {
+      "name": "36Note",
+      "description": "Bloc-notes Android chiffré, consultable depuis le navigateur d'un PC — en français, réalisé avec Claude",
+      "language": "Kotlin",
+      "topics": [],
+      "url": "https://github.com/36txXnxTrGXgSH/36Note",
+      "homepage": "https://36txxnxtrgxgsh.github.io/36Note/",
+      "updated": "2026-10-20T06:06:17Z",
+      "branch": "main",
+      "stars": 0,
+      "watchers": 0,
+      "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Note/main/docs/images/01-accueil.png",
+      "release": {
+        "tag": "v1.25",
+        "file": "36Note-1.25.apk",
+        "size": 2320033,
+        "url": "https://github.com/36txXnxTrGXgSH/36Note/releases/download/v1.25/36Note-1.25.apk"
+      }
+    },
+    {
+      "name": "36Music",
+      "description": "Lecteur de musique local pour Android, piloté par une molette cliquable — FLAC, ALAC, Hi-Res, sans compte ni réseau. En français, réalisé avec Claude.",
+      "language": "Kotlin",
+      "topics": [
+        "alac",
+        "android",
+        "flac",
+        "french",
+        "jetpack-compose",
+        "kotlin",
+        "music-player",
+        "offline"
+      ],
+      "url": "https://github.com/36txXnxTrGXgSH/36Music",
+      "homepage": "https://36txXnxTrGXgSH.github.io/36Music/",
+      "updated": "2026-10-20T05:08:20Z",
+      "branch": "main",
+      "stars": 0,
+      "watchers": 0,
+      "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Music/main/docs/images/01-accueil.png",
+      "release": {
+        "tag": "v5.4",
+        "file": "36Music-5.4.apk",
+        "size": 3081731,
+        "url": "https://github.com/36txXnxTrGXgSH/36Music/releases/download/v5.4/36Music-5.4.apk"
+      }
+    }
+  ]
+}
