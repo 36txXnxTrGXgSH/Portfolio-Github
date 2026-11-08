@@ -443,6 +443,16 @@
   // Données de secours si l'API GitHub est indisponible (limite de requêtes, hors ligne…)
   const FALLBACK = [
     {
+      name: "36Board", stars: 0, watchers: 0,
+      description: "Clavier AZERTY français pour Android, entièrement hors ligne : saisie gestuelle, dictionnaire de 150 000 mots, abréviations SMS et anglicismes, plus de 1 300 emoji. Aucune permission réseau. En français, réalisé avec Claude.",
+      language: "Kotlin", topics: ["android"], branch: "main",
+      url: "https://github.com/36txXnxTrGXgSH/36Board",
+      homepage: "https://36txxnxtrgxgsh.github.io/36Board/",
+      updated: "2026-11-08T00:00:00Z",
+      release: { tag: "v1.14", file: "36Board-1.14.apk", size: 1789977,
+        url: "https://github.com/36txXnxTrGXgSH/36Board/releases/download/v1.14/36Board-1.14.apk" }
+    },
+    {
       name: "36Screenlink", stars: 0, watchers: 0,
       description: "Écran étendu Android pour Windows, en USB et Wi-Fi : un vrai moniteur, avec tactile, clavier et stylet. En français, réalisé avec Claude.",
       language: "C++", topics: ["windows"], branch: "main",
@@ -689,7 +699,7 @@
   // Incrémenter la version quand la page doit abandonner les copies gardées par les
   // navigateurs (nouveau projet, topics changés) : sans cela, un visiteur voit jusqu'à
   // 24 h l'ancien classement, la page ne redemandant rien à GitHub tant que sa copie vit.
-  const CACHE_KEY = "portfolio-projects-v4";
+  const CACHE_KEY = "portfolio-projects-v5";
   const CACHE_TTL = 24 * 60 * 60 * 1000; // données GitHub rafraîchies une fois par jour
 
   function readCache() {
