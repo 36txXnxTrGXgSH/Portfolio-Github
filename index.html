@@ -409,12 +409,11 @@
 </main>
 
 <footer>
-  Liste mise à jour automatiquement depuis <a href="https://github.com/36txXnxTrGXgSH" target="_blank" rel="noopener">GitHub</a>.
+  Liste mise à jour chaque jour depuis <a href="https://github.com/36txXnxTrGXgSH" target="_blank" rel="noopener">GitHub</a>.
 </footer>
 
 <script>
   const USER = "36txXnxTrGXgSH";
-  const SELF_REPO = "portfolio-github"; // ce site, exclu de la liste
 
   // Les 4 catégories, dans l'ordre d'affichage
   const CATEGORIES = [
@@ -435,74 +434,6 @@
     navigateur: ["navigateur", "browser", "browser-extension", "extension", "chrome-extension",
                  "firefox-addon", "firefox-extension", "userscript", "web-app", "webapp"]
   };
-
-  // Images de présentation essayées dans l'ordre (dans le dépôt, branche par défaut).
-  // Pour choisir l'image d'un projet : ajouter un fichier "preview.png" à la racine du dépôt.
-  const IMAGE_CANDIDATES = ["preview.png", "docs/images/01-accueil.png"];
-
-  // Données de secours si l'API GitHub est indisponible (limite de requêtes, hors ligne…)
-  const FALLBACK = [
-    {
-      name: "36Board", stars: 0, watchers: 0,
-      description: "Clavier AZERTY français pour Android, entièrement hors ligne : saisie gestuelle, dictionnaire de 150 000 mots, abréviations SMS et anglicismes, plus de 1 300 emoji. Aucune permission réseau. En français, réalisé avec Claude.",
-      language: "Kotlin", topics: ["android"], branch: "main",
-      url: "https://github.com/36txXnxTrGXgSH/36Board",
-      homepage: "https://36txxnxtrgxgsh.github.io/36Board/",
-      updated: "2026-11-08T00:00:00Z",
-      release: { tag: "v1.14", file: "36Board-1.14.apk", size: 1789977,
-        url: "https://github.com/36txXnxTrGXgSH/36Board/releases/download/v1.14/36Board-1.14.apk" }
-    },
-    {
-      name: "36Screenlink", stars: 0, watchers: 0,
-      description: "Écran étendu Android pour Windows, en USB et Wi-Fi : un vrai moniteur, avec tactile, clavier et stylet. En français, réalisé avec Claude.",
-      language: "C++", topics: ["windows"], branch: "main",
-      url: "https://github.com/36txXnxTrGXgSH/36Screenlink",
-      homepage: "https://36txxnxtrgxgsh.github.io/36Screenlink/",
-      updated: "2026-10-31T00:00:00Z",
-      release: { tag: "v1.5.0", file: "36Screenlink-Setup.exe", size: 2285348,
-        url: "https://github.com/36txXnxTrGXgSH/36Screenlink/releases/download/v1.5.0/36Screenlink-Setup.exe" }
-    },
-    {
-      name: "36FileManager", stars: 0, watchers: 0,
-      description: "Gestionnaire de fichiers Android : recherche, coffre-fort chiffré, lecteurs réseau SMB, et le téléphone ouvert dans le navigateur du PC. En français, réalisé avec Claude.",
-      language: "Kotlin", topics: ["android"], branch: "main",
-      url: "https://github.com/36txXnxTrGXgSH/36FileManager",
-      homepage: "https://36txxnxtrgxgsh.github.io/36FileManager/",
-      updated: "2026-10-21T00:00:00Z",
-      release: { tag: "v2.5.1", file: "36FileManager-2.5.1.apk", size: 16765684,
-        url: "https://github.com/36txXnxTrGXgSH/36FileManager/releases/download/v2.5.1/36FileManager-2.5.1.apk" }
-    },
-    {
-      name: "36Frame", stars: 0, watchers: 0,
-      description: "Liseuse d'images pour Windows inspirée de Picasa — la fenêtre épouse l'image, zoom fluide, Mosaïque Dossier, écran tactile (pincement, balayage), aperçu avant impression, GIF et WebP animés, images détourées. Sans compte ni réseau. En français, réalisé avec Claude.",
-      language: "Python", topics: ["windows"], branch: "main",
-      url: "https://github.com/36txXnxTrGXgSH/36Frame",
-      homepage: "https://36txxnxtrgxgsh.github.io/36Frame/",
-      updated: "2026-11-05T00:00:00Z",
-      release: { tag: "v1.2.2", file: "36Frame-Setup-1.2.2.exe", size: 23751683,
-        url: "https://github.com/36txXnxTrGXgSH/36Frame/releases/download/v1.2.2/36Frame-Setup-1.2.2.exe" }
-    },
-    {
-      name: "36Note", stars: 0, watchers: 0,
-      description: "Bloc-notes Android chiffré, consultable depuis le navigateur d'un PC — en français, réalisé avec Claude",
-      language: "Kotlin", topics: [], branch: "main",
-      url: "https://github.com/36txXnxTrGXgSH/36Note",
-      homepage: "https://36txxnxtrgxgsh.github.io/36Note/",
-      updated: "2026-10-20T06:06:09Z",
-      release: { tag: "v1.25", file: "36Note-1.25.apk", size: 2320033,
-        url: "https://github.com/36txXnxTrGXgSH/36Note/releases/download/v1.25/36Note-1.25.apk" }
-    },
-    {
-      name: "36Music", stars: 0, watchers: 0,
-      description: "Lecteur de musique local pour Android, piloté par une molette cliquable — FLAC, ALAC, Hi-Res, sans compte ni réseau. En français, réalisé avec Claude.",
-      language: "Kotlin", topics: ["android"], branch: "main",
-      url: "https://github.com/36txXnxTrGXgSH/36Music",
-      homepage: "https://36txXnxTrGXgSH.github.io/36Music/",
-      updated: "2026-10-20T05:08:24Z",
-      release: { tag: "v5.4", file: "36Music-5.4.apk", size: 3081731,
-        url: "https://github.com/36txXnxTrGXgSH/36Music/releases/download/v5.4/36Music-5.4.apk" }
-    }
-  ];
 
   const ICONS = {
     download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>',
@@ -526,15 +457,6 @@
     return (clean.slice(0, 2) || "?").toUpperCase();
   };
 
-  // Préfère un installable (.apk, .exe…), sinon le premier fichier de la release ;
-  // parmi plusieurs .exe (installateur + portable), l'installateur passe en premier
-  function pickAsset(assets) {
-    if (!assets || !assets.length) return null;
-    const installable = a => /\.(apk|exe|msi|msix|crx|xpi)$/i.test(a.name);
-    return assets.find(a => installable(a) && /setup|install/i.test(a.name))
-      || assets.find(installable) || assets[0];
-  }
-
   // Catégorie : d'abord les topics GitHub, puis le type de fichier téléchargé
   function categorize(p) {
     const topics = (p.topics || []).map(t => t.toLowerCase());
@@ -548,50 +470,9 @@
     return "autre";
   }
 
-  async function fetchProjects() {
-    const res = await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&type=owner&sort=updated`);
-    if (!res.ok) throw new Error("API " + res.status);
-    const repos = (await res.json()).filter(r => !r.fork && !r.private && r.name.toLowerCase() !== SELF_REPO);
-
-    return Promise.all(repos.map(async r => {
-      // Le vrai nombre de « Watching » (subscribers_count) n'existe que dans la fiche détaillée du dépôt ;
-      // le watchers_count de la liste est en fait le nombre de stars
-      let watchers = null;
-      try {
-        const det = await fetch(`https://api.github.com/repos/${USER}/${r.name}`);
-        if (det.ok) watchers = (await det.json()).subscribers_count;
-      } catch (_) { /* compteur masqué si indisponible */ }
-
-      let release = null;
-      try {
-        const rel = await fetch(`https://api.github.com/repos/${USER}/${r.name}/releases/latest`);
-        if (rel.ok) {
-          const data = await rel.json();
-          const a = pickAsset(data.assets);
-          if (a) release = { tag: data.tag_name, file: a.name, size: a.size, url: a.browser_download_url };
-        }
-      } catch (_) { /* pas de release : on proposera le .zip du code */ }
-      return {
-        name: r.name,
-        description: r.description,
-        language: r.language,
-        topics: r.topics,
-        url: r.html_url,
-        homepage: r.homepage,
-        updated: r.pushed_at || r.updated_at,
-        branch: r.default_branch,
-        stars: r.stargazers_count,
-        watchers,
-        release
-      };
-    }));
-  }
-
-  // Images à essayer pour un projet ; la dernière (carte d'aperçu GitHub) existe toujours
+  // Image choisie par le script, puis la carte d'aperçu GitHub, qui existe toujours
   function imageSources(p) {
-    const raw = `https://raw.githubusercontent.com/${USER}/${p.name}/${p.branch || "main"}/`;
-    return IMAGE_CANDIDATES.map(f => raw + f)
-      .concat(`https://opengraph.githubassets.com/1/${USER}/${p.name}`);
+    return [p.image, `https://opengraph.githubassets.com/1/${USER}/${p.name}`].filter(Boolean);
   }
 
   // Passe à l'image suivante si celle-ci n'existe pas
@@ -696,30 +577,16 @@
     };
   }
 
-  // Incrémenter la version quand la page doit abandonner les copies gardées par les
-  // navigateurs (nouveau projet, topics changés) : sans cela, un visiteur voit jusqu'à
-  // 24 h l'ancien classement, la page ne redemandant rien à GitHub tant que sa copie vit.
-  const CACHE_KEY = "portfolio-projects-v5";
-  const CACHE_TTL = 24 * 60 * 60 * 1000; // données GitHub rafraîchies une fois par jour
-
-  function readCache() {
-    try {
-      const c = JSON.parse(localStorage.getItem(CACHE_KEY));
-      return c && Date.now() - c.time < CACHE_TTL ? c.projects : null;
-    } catch (_) { return null; }
-  }
-
-  const cached = readCache();
-  if (cached) {
-    render(cached);
-  } else {
-    fetchProjects()
-      .then(projects => {
-        try { localStorage.setItem(CACHE_KEY, JSON.stringify({ time: Date.now(), projects })); } catch (_) {}
-        render(projects);
-      })
-      .catch(() => render(FALLBACK));
-  }
+  // projects.json est régénéré chaque jour par la GitHub Action (.github/workflows/projects.yml) :
+  // les visiteurs ne dépendent jamais de l'API GitHub, ni de sa lenteur ni de ses limites
+  fetch("projects.json")
+    .then(res => { if (!res.ok) throw new Error(res.status); return res.json(); })
+    .then(data => render(data.projects))
+    .catch(() => {
+      document.getElementById("projects").innerHTML =
+        `<div class="status glass">Impossible de charger la liste des projets.
+         Ils restent visibles sur <a href="https://github.com/${USER}">GitHub</a>.</div>`;
+    });
 </script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+# Régénère projects.json (la liste des projets lue par la page) une fois par jour,
+# à chaque modification du site, ou à la demande depuis l'onglet Actions.
+name: Liste des projets
+
+on:
+  schedule:
+    - cron: "17 4 * * *" # chaque jour vers 4 h 17 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore: [projects.json]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: projects
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Générer projects.json
+        run: python scripts/build_projects.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enregistrer si la liste a changé
+        run: |
+          git diff --quiet projects.json && { echo "Aucun changement."; exit 0; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add projects.json
+          git commit -m "Met à jour la liste des projets"
+          git push
