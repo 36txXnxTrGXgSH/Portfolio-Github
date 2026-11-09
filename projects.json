@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-08T22:21:29Z",
+  "generated": "2026-11-09T12:52:56Z",
   "projects": [
     {
       "name": "36Screenlink",
@@ -14,25 +14,25 @@
       ],
       "url": "https://github.com/36txXnxTrGXgSH/36Screenlink",
       "homepage": "https://36txxnxtrgxgsh.github.io/36Screenlink/",
-      "updated": "2026-11-08T21:17:51Z",
+      "updated": "2026-11-09T03:41:50Z",
       "branch": "main",
       "stars": 0,
       "watchers": 0,
       "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Screenlink/main/docs/images/01-accueil.png",
       "release": {
-        "tag": "v1.6.0",
+        "tag": "v1.6.1",
         "files": [
           {
             "platform": "windows",
             "file": "36Screenlink-Setup.exe",
-            "size": 2293266,
-            "url": "https://github.com/36txXnxTrGXgSH/36Screenlink/releases/download/v1.6.0/36Screenlink-Setup.exe"
+            "size": 2293228,
+            "url": "https://github.com/36txXnxTrGXgSH/36Screenlink/releases/download/v1.6.1/36Screenlink-Setup.exe"
           },
           {
             "platform": "android",
             "file": "36Screenlink.apk",
-            "size": 127382,
-            "url": "https://github.com/36txXnxTrGXgSH/36Screenlink/releases/download/v1.6.0/36Screenlink.apk"
+            "size": 127122,
+            "url": "https://github.com/36txXnxTrGXgSH/36Screenlink/releases/download/v1.6.1/36Screenlink.apk"
           }
         ]
       }
