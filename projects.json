@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-24T14:53:23Z",
+  "generated": "2026-11-25T22:58:48Z",
   "projects": [
     {
       "name": "36Screenlink",
@@ -116,19 +116,19 @@
       ],
       "url": "https://github.com/36txXnxTrGXgSH/36FileManager",
       "homepage": "https://36txxnxtrgxgsh.github.io/36FileManager/",
-      "updated": "2026-10-21T01:21:18Z",
+      "updated": "2026-11-25T22:58:15Z",
       "branch": "main",
       "stars": 0,
       "watchers": 0,
       "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36FileManager/main/docs/images/01-accueil.png",
       "release": {
-        "tag": "v2.5.1",
+        "tag": "v2.6.2",
         "files": [
           {
             "platform": "android",
-            "file": "36FileManager-2.5.1.apk",
-            "size": 16765684,
-            "url": "https://github.com/36txXnxTrGXgSH/36FileManager/releases/download/v2.5.1/36FileManager-2.5.1.apk"
+            "file": "36FileManager-2.6.2.apk",
+            "size": 17905690,
+            "url": "https://github.com/36txXnxTrGXgSH/36FileManager/releases/download/v2.6.2/36FileManager-2.6.2.apk"
           }
         ]
       }
