@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25T22:58:48Z",
+  "generated": "2026-11-26T12:37:56Z",
   "projects": [
     {
       "name": "36Screenlink",
@@ -51,19 +51,19 @@
       ],
       "url": "https://github.com/36txXnxTrGXgSH/36Board",
       "homepage": "https://36txxnxtrgxgsh.github.io/36Board/",
-      "updated": "2026-11-08T11:35:36Z",
+      "updated": "2026-11-26T12:37:19Z",
       "branch": "main",
       "stars": 0,
       "watchers": 0,
       "image": "https://raw.githubusercontent.com/36txXnxTrGXgSH/36Board/main/docs/images/01-accueil.png",
       "release": {
-        "tag": "v1.14",
+        "tag": "v1.15",
         "files": [
           {
             "platform": "android",
-            "file": "36Board-1.14.apk",
-            "size": 1789977,
-            "url": "https://github.com/36txXnxTrGXgSH/36Board/releases/download/v1.14/36Board-1.14.apk"
+            "file": "36Board-1.15.apk",
+            "size": 1789978,
+            "url": "https://github.com/36txXnxTrGXgSH/36Board/releases/download/v1.15/36Board-1.15.apk"
           }
         ]
       }
